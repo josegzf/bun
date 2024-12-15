@@ -28,6 +28,10 @@ jobs:
             pwd
             ls -lah
       - run:
+          name: Packages install
+          command: |
+            node install
+      - run:
           name: Build Linux
           command: |
             node ./buildkite/ci.mjs
