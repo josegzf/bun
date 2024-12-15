@@ -21,8 +21,16 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/files
-      - run: pwd
-      - run: ls -lah
+      - run:
+          name: Check Files
+          command: |
+            pwd
+            ls -lah
+      - run:
+          name: Build Linux
+          command: |
+            pwd
+            ls -lah
       - persist_to_workspace:
           root: /tmp/files
           paths:
