@@ -30,11 +30,16 @@ jobs:
       - run:
           name: Packages install
           command: |
-            node build
+            yarn install
+            curl -fsSL https://bun.sh/install | bash
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
       - run:
           name: Build Linux
           command: |
-            node ./buildkite/ci.mjs
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
+            yarn build
       - persist_to_workspace:
           root: /tmp/files
           paths:
