@@ -20,7 +20,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-        at: /tmp/files
+          at: /tmp/files
       - run: pwd
       - run: ls -lah
       - persist_to_workspace:
