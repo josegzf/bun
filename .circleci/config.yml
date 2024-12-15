@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Packages install
           command: |
-            node install
+            node build
       - run:
           name: Build Linux
           command: |
