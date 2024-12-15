@@ -3,8 +3,6 @@ defaults: &defaults
     working_directory: /tmp/files
     docker:
       - image: cimg/base:current
-      environment:
-        TERM: xterm
 
 jobs:
   checkout:
@@ -29,9 +27,9 @@ jobs:
             pwd
             ls -lah
       - run:
-          name: Build
+          name: Build Linux
           command: |
-            node .buildkite/ci.mjs
+            node ./buildkite/ci.mjs
       - persist_to_workspace:
           root: /tmp/files
           paths:
