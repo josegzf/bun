@@ -9,27 +9,27 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: ls -lart
       - persist_to_workspace:
-         root: /tmp/files
-         paths:
+          root: /tmp/files
+          paths:
             - .
 
   build-linux:
     <<: *defaults
     steps:
-      - run:
-        name: Build Linux
-        command: |
-            pwd
-      - run:
-        name: Create Release
-        command: |
-            pwd
+      - run: pwd
+      - run: ls -lah
+      - persist_to_workspace:
+          root: /tmp/files
+          paths:
+            - .
 
 workflows:
-  workflow:
+  workflow-linux:
     jobs:
       - checkout
+
       - build-linux:
           requires:
             - checkout
