@@ -9,6 +9,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: pwd
       - run: ls -lart
       - persist_to_workspace:
           root: /tmp/files
